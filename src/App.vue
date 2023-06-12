@@ -9,11 +9,15 @@ const guitarras = ref([]);
 const carrito = ref([]);
 const guitarraHeader = ref({});
 
-watch(carrito, () => {
-  guardarLocalStorage()
-}, {
-  deep: true,
-});
+watch(
+  carrito,
+  () => {
+    guardarLocalStorage();
+  },
+  {
+    deep: true,
+  }
+);
 
 onMounted(() => {
   guitarras.value = db;
@@ -76,6 +80,7 @@ const vaciarCarrito = () => {
     <div class="row mt-5">
       <Guitarra
         v-for="guitarra in guitarras"
+        :key="guitarra.id"
         :guitarra="guitarra"
         @agregar-carrito="agregarCarrito"
       />
