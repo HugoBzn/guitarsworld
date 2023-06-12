@@ -7,9 +7,11 @@ import Footer from "./components/Footer.vue";
 
 const guitarras = ref([]);
 const carrito = ref([]);
+const guitarraHeader = ref({});
 
 onMounted(() => {
   guitarras.value = db;
+  guitarraHeader.value = db[3];
 });
 
 const agregarCarrito = (guitarra) => {
@@ -38,8 +40,10 @@ const incrementarCantidad = (id) => {
 <template>
   <Header
     :carrito="carrito"
+    :guitarraHeader="guitarraHeader"
     @decrementar-cantidad="decrementarCantidad"
     @incrementar-cantidad="incrementarCantidad"
+    @agregar-carrito="agregarCarrito"
   />
 
   <main class="container-xl mt-5">
