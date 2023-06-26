@@ -38,6 +38,7 @@ const agregarCarrito = (guitarra) => {
   if (existeCarrito >= 0) {
     carrito.value[existeCarrito].cantidad++;
   } else {
+    alert("Se ha añadido la guitarra al carrito")
     guitarra.cantidad = 1;
     carrito.value.push(guitarra);
   }
